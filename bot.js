@@ -20,11 +20,11 @@ function respond() {
     //postMessage( cool() );
     postMessage( urbanDict.definition('a word') );
     this.res.end();
-  } /* else if(reqText && ( (^\/urbanDict /).test(reqText) ) ){
+  } else if(reqText && ( (^\/urbanDict /).test(reqText) ) ){
     this.res.writeHead(200);
-    postMessage( urbanDict(reqText.slice(11)) );
+    postMessage( urbanDict.definition('asdfasdf') );
     this.res.end;
-  } */else {
+  } else {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
