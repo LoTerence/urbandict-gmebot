@@ -17,10 +17,9 @@ function respond() {
 
   if(reqText && botRegex.test(reqText)) {
     this.res.writeHead(200);
-    //postMessage( cool() );
-    postMessage( urbanDict.definition('a word') );
+    postMessage( cool() );
     this.res.end();
-  } else if(reqText && ( (^\/urbanDict /).test(reqText) ) ){
+  } else if(reqText && ( (/^\/urbanDict /).test(reqText) ) ){
     this.res.writeHead(200);
     postMessage( urbanDict.definition('asdfasdf') );
     this.res.end;
