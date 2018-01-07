@@ -1,8 +1,14 @@
+//global init
+
+//load https server
 var HTTPS = require('https');
+
+//command with custom action
 var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 
+// respond function
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy$/;
@@ -21,8 +27,7 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-  //botResponse = cool() + "you are faggot";
-  botResponse = "you are faggot";
+  botResponse = 'hey hey hey';
 
   options = {
     hostname: 'api.groupme.com',
