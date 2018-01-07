@@ -1,5 +1,5 @@
 //load https server
-//const HTTPS = require('https');
+var HTTPS = require('https');
 
 /* 
 function urb() would be called if groupme user begins message with /urbanDict
@@ -8,7 +8,7 @@ function urb() would be called if groupme user begins message with /urbanDict
 */
 exports.urb = function(input) {
     var message = 'hi this is msg ' +input;
-/*
+
     //connecting to urbandictionary API
     var options = {
         hostname: "api.urbandictionary.com",
@@ -27,14 +27,14 @@ exports.urb = function(input) {
             str = JSON.parse(str);
 
             if(typeof(str.list[0].definition)!== 'undefined'){
-                msg = str.list[0].definition;
+                message = str.list[0].definition;
             } else {
-                msg = input+" was not found in urban dictionary";
+                message = input+" was not found in urban dictionary";
             }
         });
     };
     
     HTTPS.request(options, callbackAPI).end();
-*/
+
     return 'test urbandict worked: ' + message;
 }
