@@ -1,5 +1,5 @@
 //load https server
-const https = require('https');
+const HTTPS = require('https');
 
 /* 
 function urb() would be called if groupme user begins message with /urbanDict
@@ -35,12 +35,7 @@ exports.urb = function(input) {
         });
     };
     
-    https.request(options, callbackAPI)
-        .on('error', (e) => {
-            console.error(e);
-            msg = 'there was an error making https request, check console';
-        })
-        .end();
+    HTTPS.request(options, callbackAPI).end();
 
     return 'test urbandict worked: ' + msg;
 }
