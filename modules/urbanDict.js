@@ -35,7 +35,7 @@ exports.urb = function(input) {
     };
     
     HTTPS.request(options, callbackAPI)
-        .on('err', (e) => {
+        .on('error', (e) => {
             console.error(e);
             message = 'there was an error with the https request';
         })
