@@ -5,7 +5,7 @@ var HTTPS = require('https');
 
 //command with custom action
 var cool = require('cool-ascii-faces');
-var urbanDict = require('./modules/urbanDict.js');
+//var urbanDict = require('./modules/urbanDict.js');
 
 var botID = process.env.BOT_ID;
 
@@ -19,7 +19,7 @@ function respond() {
     this.res.writeHead(200);
     postMessage( cool() );
     this.res.end();
-  } else if(reqText && ( (/^\/urbanDict /).test(reqText) ) ){
+  } else if(reqText && ( (/^\/urbanDict .+/).test(reqText) ) ){
     this.res.writeHead(200);
     //postMessage( urbanDict.urb(reqText.slice(11)) );
     postMessage( cool() );
