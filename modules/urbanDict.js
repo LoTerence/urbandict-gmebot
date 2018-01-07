@@ -1,5 +1,5 @@
 //load https server
-const HTTPS = require('https');
+//const HTTPS = require('https');
 
 /* 
 function urb() would be called if groupme user begins message with /urbanDict
