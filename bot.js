@@ -18,7 +18,7 @@ function respond() {
   if(reqText && botRegex.test(reqText)) {
     this.res.writeHead(200);
     //postMessage( cool() );
-    postMessage( urbanDict('a word') );
+    postMessage( urbanDict.definition('a word') );
     this.res.end();
   } /* else if(reqText && ( (^\/urbanDict /).test(reqText) ) ){
     this.res.writeHead(200);
