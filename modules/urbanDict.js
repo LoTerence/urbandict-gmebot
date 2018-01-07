@@ -7,13 +7,12 @@ function urb() would be called if groupme user begins message with /urbanDict
     definition of that string
 */
 exports.urb = function(input) {
-    const word = encodeURIComponent(input);
-    let msg = '';
+    let msg = 'hi this is msg';
 
     //connecting to urbandictionary API
     var options = {
         hostname: "api.urbandictionary.com",
-        path: "/v0/define?term=" + word,
+        path: "/v0/define?term=" + encodeURIComponent(input),
         rejectUnauthorized: false
     };
 
