@@ -19,11 +19,11 @@ function respond() {
     this.res.writeHead(200);
     postMessage( cool() );
     this.res.end();
-  } else if(reqText && ( (^\/urbanDict /).test(reqText) ) ){
+  } /* else if(reqText && ( (^\/urbanDict /).test(reqText) ) ){
     this.res.writeHead(200);
     postMessage( urbanDict(reqText.slice(11)) );
     this.res.end;
-  } else {
+  }*/ else {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
