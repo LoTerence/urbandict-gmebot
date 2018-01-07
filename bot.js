@@ -5,7 +5,7 @@ var HTTPS = require('https');
 
 //command with custom action
 var cool = require('cool-ascii-faces');
-var urbanDict = require('./modules/urbanDict.js');
+//var urbanDict = require('./modules/urbanDict.js');
 
 var botID = process.env.BOT_ID;
 
@@ -13,16 +13,19 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy$/;
+      reqText = request.text;
 
-  if(request.text && botRegex.test(request.text)) {
+  if(reqText && botRegex.test(reqText)) {
     this.res.writeHead(200);
     postMessage( cool() );
     this.res.end();
-  } else if(request.text && (^\/urbanDict /).test(request.text)){
+  }
+/*  else if(reqText && (^\/urbanDict /).test(reqText)){
     this.res.writeHead(200);
-    postMessage( urbanDict(request.text.slice(11)) );
+    postMessage( urbanDict(reqText.slice(11)) );
     this.res.end;
-  } else {
+  } */
+  else {
     console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
@@ -32,8 +35,8 @@ function respond() {
 function postMessage(str) {
   var botResponse, options, body, botReq;
 
-  //botResponse = 'cool()';
-  botResponse = str;
+  botResponse = 'cool()';
+ // botResponse = str;
 
   options = {
     hostname: 'api.groupme.com',
