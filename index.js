@@ -2,7 +2,7 @@ var http, director, cool, bot, router, server, port;
 
 http        = require('http');
 director    = require('director');
-cool        = require('cool-ascii-faces');
+//cool        = require('cool-ascii-faces');
 bot         = require('./bot.js');
 
 router = new director.http.Router({
@@ -29,5 +29,5 @@ server.listen(port);
 
 function ping() {
   this.res.writeHead(200);
-  this.res.end("Hey, I'm Cool Guy. test test");
+  this.res.end("Hey, I'm an urbdict cool guy groupme bot");
 }
