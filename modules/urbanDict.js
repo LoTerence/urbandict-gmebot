@@ -34,7 +34,12 @@ exports.urb = function(input) {
         });
     };
     
-    HTTPS.request(options, callbackAPI).end();
+    HTTPS.request(options, callbackAPI)
+        .on('err', (e) => {
+            console.error(e);
+            message = 'there was an error with the https request';
+        })
+        .end();
 
     return 'test urbandict worked: ' + message;
 }
