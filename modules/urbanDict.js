@@ -34,12 +34,12 @@ exports.urb = function(input) {
         });
     };
     
-    HTTPS.request(options, callbackAPI)
-        .on('error', (e) => {
-            console.error(e);
-            message = 'there was an error with the https request';
-        })
-        .end();
+    var request = HTTPS.request(options, callbackAPI);
+    request.on('error', (e) => {
+        console.error(e);
+        message = 'there was an error with the https request '+input;
+    });
+    request.end();
 
     return 'test urbandict worked: ' + message;
 }
