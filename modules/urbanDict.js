@@ -45,6 +45,7 @@ exports.urb = function(input) {
     request.on('error', (e) => {
         console.log( 'got error 2:'  + e.message);
     });
+    request.end();
 
     return 'test urbandict worked: ' + mes;
 }
