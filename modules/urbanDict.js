@@ -1,5 +1,5 @@
 //load https server
-var HTTP = require('http');
+var HTTPS = require('https');
 
 /* 
 function urb() would be called if groupme user begins message with /urbanDict
@@ -26,18 +26,18 @@ exports.urb = function(input) {
         res.on('end', function() {
             try{
                 str = JSON.parse(str);
-                if(typeof(str.list[0].definition)!== 'undefined'){
+                if( (typeof(str.list[0].definition)) !== 'undefined' ){
                     mes = str.list[0].definition;
                 } else {
                     mes = input+" was not found in urban dictionary";
                 }
             } catch (e) {
-                console.error(e.message;
+                console.error(e.message);
             }
         });
     };
     
-    var request = HTTP.get(options, callbackAPI);
+    var request = HTTPS.get(options, callbackAPI);
     
     request.end();
 
