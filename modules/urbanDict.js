@@ -28,8 +28,8 @@ exports.urb = function(input) {
             try{
                 str = JSON.parse(str);
                 if( (typeof(str.list[0].definition)) !== 'undefined' ){
-                    console.log('does if work');
-                    return str.list[0].definition;
+                    console.log(str.list[0].definition);
+                    mes = str.list[0].definition;
                 } else {
                     console.log('or does else work');
                     return input+" was not found in urban dictionary";

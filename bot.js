@@ -22,7 +22,6 @@ function respond() {
   } else if(reqText && ( (/^\/urbanDict .+/).test(reqText) ) ){
     this.res.writeHead(200);
     postMessage( urbanDict.urb(reqText.slice(11)) );
-    //postMessage( cool() );
     this.res.end;
   } else {
     console.log("don't care");
