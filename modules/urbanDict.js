@@ -33,7 +33,7 @@ exports.urb = function(input) {
                     return input+" was not found in urban dictionary";
                 }
             } catch (e) {
-                console.log('got error 1: 'e.message);
+                console.log('got error 1: '+ e.message);
             }
         });
     };
