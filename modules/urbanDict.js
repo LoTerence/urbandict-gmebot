@@ -28,12 +28,15 @@ exports.urb = function(input) {
             try{
                 str = JSON.parse(str);
                 if( (typeof(str.list[0].definition)) !== 'undefined' ){
+                    console.log('does if work');
                     return str.list[0].definition;
                 } else {
+                    console.log('or does else work');
                     return input+" was not found in urban dictionary";
                 }
             } catch (e) {
                 console.log('got error 1: '+ e.message);
+                return 'an error in res.on(end) happened';
             }
         });
     };
@@ -42,7 +45,6 @@ exports.urb = function(input) {
     request.on('error', (e) => {
         console.log( 'got error 2:'  + e.message);
     });
-    return request.end();
 
-    //return 'test urbandict worked: ' + mes;
+    return 'test urbandict worked: ' + mes;
 }
