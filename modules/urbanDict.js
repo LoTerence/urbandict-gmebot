@@ -27,9 +27,9 @@ exports.urb = function(input) {
             try{
                 str = JSON.parse(str);
                 if( (typeof(str.list[0].definition)) !== 'undefined' ){
-                    mes = str.list[0].definition;
+                    return str.list[0].definition;
                 } else {
-                    mes = input+" was not found in urban dictionary";
+                    return input+" was not found in urban dictionary";
                 }
             } catch (e) {
                 console.error(e.message);
