@@ -6,7 +6,7 @@ function urb() would be called if groupme user begins message with /urbanDict
 -It takes the user input after /urbanDict (a string) and returns the urbandictionary
     definition of that string
 */
-exports.urb = function(input) {
+exports.urb = function(input, callback) {
     var mes = 'hi this is msg ' +input;
 
     //connecting to urbandictionary API
@@ -29,10 +29,10 @@ exports.urb = function(input) {
                 str = JSON.parse(str);
                 if( (typeof(str.list[0].definition)) !== 'undefined' ){
                     console.log(str.list[0].definition);
-                    mes = str.list[0].definition;
+                    callback( str.list[0].definition );
                 } else {
                     console.log('or does else work');
-                    mes = input+" was not found in urban dictionary";
+                    callback( input+" was not found in urban dictionary" );
                 }
             } catch (e) {
                 console.log('got error 1: '+ e.message);
@@ -46,7 +46,6 @@ exports.urb = function(input) {
         console.log( 'got error 2:'  + e.message);
     });
     request.end();
-    console.log('end of function urb(), mes = ' + mes );
 
     return 'test urbandict worked: ' + mes;
 }
