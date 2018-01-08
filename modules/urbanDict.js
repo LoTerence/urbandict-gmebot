@@ -33,14 +33,14 @@ exports.urb = function(input) {
                     return input+" was not found in urban dictionary";
                 }
             } catch (e) {
-                console.log(e.message);
+                console.log('got error 1: 'e.message);
             }
         });
     };
     
     var request = HTTPS.get(options, callbackAPI);
     request.on('error', (e) => {
-        console.log( 'got error:'  + e.message);
+        console.log( 'got error 2:'  + e.message);
     });
     return request.end();
 
