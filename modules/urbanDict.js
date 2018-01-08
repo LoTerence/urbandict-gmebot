@@ -32,11 +32,11 @@ exports.urb = function(input) {
                     mes = str.list[0].definition;
                 } else {
                     console.log('or does else work');
-                    return input+" was not found in urban dictionary";
+                    mes = input+" was not found in urban dictionary";
                 }
             } catch (e) {
                 console.log('got error 1: '+ e.message);
-                return 'an error in res.on(end) happened';
+                mes = 'an error in res.on(end) happened';
             }
         });
     };
@@ -46,6 +46,7 @@ exports.urb = function(input) {
         console.log( 'got error 2:'  + e.message);
     });
     request.end();
+    console.log('end of function urb(), mes = ' + mes );
 
     return 'test urbandict worked: ' + mes;
 }
