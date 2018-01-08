@@ -1,5 +1,5 @@
 //load https server
-var HTTPS = require('https');
+var HTTP = require('http');
 
 /* 
 function urb() would be called if groupme user begins message with /urbanDict
@@ -7,7 +7,7 @@ function urb() would be called if groupme user begins message with /urbanDict
     definition of that string
 */
 exports.urb = function(input) {
-    var message = 'hi this is msg ' +input;
+    var mes = 'hi this is msg ' +input;
 
     //connecting to urbandictionary API
     var options = {
@@ -24,19 +24,22 @@ exports.urb = function(input) {
         });
 
         res.on('end', function() {
-            str = JSON.parse(str);
-
-            if(typeof(str.list[0].definition)!== 'undefined'){
-                message = str.list[0].definition;
-            } else {
-                message = input+" was not found in urban dictionary";
+            try{
+                str = JSON.parse(str);
+                if(typeof(str.list[0].definition)!== 'undefined'){
+                    mes = str.list[0].definition;
+                } else {
+                    mes = input+" was not found in urban dictionary";
+                }
+            } catch (e) {
+                console.error(e.message;
             }
         });
     };
     
-    var request = HTTPS.request(options, callbackAPI);
+    var request = HTTP.get(options, callbackAPI);
     
     request.end();
 
-    return 'test urbandict worked: ' + message;
+    return 'test urbandict worked: ' + mes;
 }
