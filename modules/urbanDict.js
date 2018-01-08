@@ -18,12 +18,13 @@ exports.urb = function(input) {
 
     var callbackAPI = function(res) {
         var str = '';
-
+        console.log('running callback api method trying to get https get() to work on ud-api');
         res.on('data', function(chunk) {
             str += chunk;
         });
 
         res.on('end', function() {
+            console.log('res.on(end) - does this work');
             try{
                 str = JSON.parse(str);
                 if( (typeof(str.list[0].definition)) !== 'undefined' ){
@@ -32,13 +33,15 @@ exports.urb = function(input) {
                     return input+" was not found in urban dictionary";
                 }
             } catch (e) {
-                console.error(e.message);
+                console.log(e.message);
             }
         });
     };
     
     var request = HTTPS.get(options, callbackAPI);
-    
+    request.on('error', (e) => {
+        console.log( 'got error:'  + e.message);
+    });
     request.end();
 
     return 'test urbandict worked: ' + mes;
