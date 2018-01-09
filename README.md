@@ -107,6 +107,8 @@ Go to GroupMe and type "/cool guy" in the group where your bot lives to see it i
 
 ![Test your Bot](http://i.groupme.com/821x587.png.7bcf55bed1c64acab83fa2c2ad0b0862)
 
+type "/urban 'string'" and replace 'string' with a word or words you want to look up in urbandictionary and the bot will respond with its first definition.
+
 # Make it your own<a name="pull"></a>
 
 ## Pull the code to your local machine
