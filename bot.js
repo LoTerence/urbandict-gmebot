@@ -19,9 +19,9 @@ function respond() {
     this.res.writeHead(200);
     postMessage( cool() );
     this.res.end();
-  } else if(reqText && ( (/^\/urbanDict .+/).test(reqText) ) ){
+  } else if(reqText && ( (/^\/urban .+/).test(reqText) ) ){
     this.res.writeHead(200);
-    urbanDict.urb(reqText.slice(11), postMessage );
+    urbanDict.urb(reqText.slice(7), postMessage );
     this.res.end;
   } else {
     console.log("don't care");

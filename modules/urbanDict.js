@@ -7,7 +7,7 @@ function urb() would be called if groupme user begins message with /urbanDict
     definition of that string
 */
 exports.urb = function(input, callback) {
-    var mes = 'hi this is msg ' +input;
+    var mes = input;
 
     //connecting to urbandictionary API
     var options = {
@@ -18,32 +18,27 @@ exports.urb = function(input, callback) {
 
     var callbackAPI = function(res) {
         var str = '';
-        console.log('running callback api method trying to get https get() to work on ud-api');
         res.on('data', function(chunk) {
             str += chunk;
         });
 
         res.on('end', function() {
-            console.log('res.on(end) - does this work');
             try{
                 str = JSON.parse(str);
                 if( (typeof(str.list[0].definition)) !== 'undefined' ){
-                    console.log(str.list[0].definition);
                     callback( str.list[0].definition );
                 } else {
-                    console.log('or does else work');
                     callback( input+" was not found in urban dictionary" );
                 }
             } catch (e) {
-                console.log('got error 1: '+ e.message);
-                mes = 'an error in res.on(end) happened';
+                console.error(e.message);
             }
         });
     };
     
     var request = HTTPS.get(options, callbackAPI);
     request.on('error', (e) => {
-        console.log( 'got error 2:'  + e.message);
+        console.error(e.message);
     });
     request.end();
 
